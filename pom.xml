@@ -23,6 +23,21 @@
       <artifactId>undertow-core</artifactId>
       <version>2.2.2.Final</version>
     </dependency>
+    <!--  Downgrade xnio for native-image
+          From version 3.6.0.Final xnio introduces dependency with org.jboss.threads:jboss-threads:2.3.0.Beta2
+          jboss-threads:2.3+ has org.jboss.threads.EnhancedQueueExecutor class that uses unsupported Unsafe operation
+    -->
+    <!-- downgraded for native-image -->
+    <!-- <dependency>
+      <groupId>org.jboss.xnio</groupId>
+      <artifactId>xnio-api</artifactId>
+      <version>3.5.9.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.xnio</groupId>
+      <artifactId>xnio-nio</artifactId>
+      <version>3.5.9.Final</version>
+    </dependency> -->
   </dependencies>
 
   <build>

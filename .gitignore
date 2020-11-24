@@ -25,6 +25,7 @@ Icon
 .com.apple.timemachine.donotpresent
 .classpath
 .settings/
+.vscode/
 
 # Directories potentially created on remote AFP share
 .AppleDB

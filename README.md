@@ -70,6 +70,8 @@ static {
 The offending code line is:
 
 ```java
+static volatile int sequence = 1;
+
 sequenceBase = unsafe.staticFieldBase(EnhancedQueueExecutor.class.getDeclaredField("sequence"));
 ```
 
