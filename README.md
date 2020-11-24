@@ -1,6 +1,6 @@
 # GraalVM Undertow Issue
 
-This repository reproduce an issue with GraalVM and Undertow that makes native image failing
+This repository reproduces an issue with GraalVM and Undertow that makes the native image failing at runtime
 
 ## build native image
 
