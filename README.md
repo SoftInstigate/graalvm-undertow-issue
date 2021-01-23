@@ -2,6 +2,8 @@
 
 This repository reproduces an issue with GraalVM and Undertow that makes the native image failing at runtime
 
+> THIS HAS BEEN FIXED WITH GraalVM >= 21.0.0!
+
 ## build native image
 
 ```bash
