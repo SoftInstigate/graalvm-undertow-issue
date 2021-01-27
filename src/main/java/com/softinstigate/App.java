@@ -5,14 +5,14 @@ import io.undertow.server.HttpHandler;
 import io.undertow.server.HttpServerExchange;
 import io.undertow.util.Headers;
 
-
 /**
  * Hello world!
  *
  */
-public class App
-{
+public class App {
+
     public static void main(final String[] args) {
+        System.setProperty("jboss.threads.eqe.disable", Boolean.toString(true));
         Undertow server = Undertow.builder()
                 .addHttpListener(8080, "localhost")
                 .setHandler(new HttpHandler() {
