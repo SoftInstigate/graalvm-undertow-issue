@@ -78,3 +78,36 @@ sequenceBase = unsafe.staticFieldBase(EnhancedQueueExecutor.class.getDeclaredFie
 ```
 
 The `unsafe` class is from [`JBossExecutors`](https://github.com/jbossas/jboss-threads/blob/master/src/main/java/org/jboss/threads/JBossExecutors.java)
+
+### workarounds
+
+## 1 - remove unsafe calls and disable jboss executors (preferred)
+
+see:
+
+- https://github.com/SoftInstigate/graalvm-undertow-issue/commit/ad36bd2d5b5397800f3494613e7fecc22615beab
+- https://github.com/oracle/graal/issues/3020
+
+## 2 - downgrade Xnio
+
+downgrade Xnio to v3.5.9 (current is v3.8.0)
+
+```xml
+            <!-- downgraded XNio for native-image.
+                 in version 3.6.0.Final xnio introduces dependency to org.jboss.threads:jboss-threads:2.3.0.Beta2
+                 this generates runtime error with native image
+                 see https://github.com/SoftInstigate/graalvm-undertow-issue
+            -->
+            <!-- downgraded for native-image -->
+            <dependency>
+                <groupId>org.jboss.xnio</groupId>
+                <artifactId>xnio-api</artifactId>
+                <version>3.5.9.Final</version>
+            </dependency>
+            <!-- downgraded for native-image -->
+            <dependency>
+                <groupId>org.jboss.xnio</groupId>
+                <artifactId>xnio-nio</artifactId>
+                <version>3.5.9.Final</version>
+            </dependency>
+```
