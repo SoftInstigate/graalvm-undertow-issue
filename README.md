@@ -79,16 +79,16 @@ sequenceBase = unsafe.staticFieldBase(EnhancedQueueExecutor.class.getDeclaredFie
 
 The `unsafe` class is from [`JBossExecutors`](https://github.com/jbossas/jboss-threads/blob/master/src/main/java/org/jboss/threads/JBossExecutors.java)
 
-### workarounds
+## workarounds
 
-## 1 - remove unsafe calls and disable jboss executors (preferred)
+### 1 - remove unsafe calls and disable jboss executors (preferred)
 
 see:
 
 - https://github.com/SoftInstigate/graalvm-undertow-issue/commit/ad36bd2d5b5397800f3494613e7fecc22615beab
 - https://github.com/oracle/graal/issues/3020
 
-## 2 - downgrade Xnio
+### 2 - downgrade Xnio
 
 downgrade Xnio to v3.5.9 (current is v3.8.0)
 
