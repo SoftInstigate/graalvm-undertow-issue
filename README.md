@@ -4,6 +4,9 @@ This repository reproduces an issue with GraalVM and Undertow that makes the nat
 
 issue confirmed with GraalVM 21.0.0 as well
 
+✅ issue fixed with GraalVM 21.3.0
+
+
 ## build native image
 
 ```bash
